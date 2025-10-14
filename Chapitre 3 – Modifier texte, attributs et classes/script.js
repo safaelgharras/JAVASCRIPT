@@ -3,8 +3,8 @@ let image = document.querySelector("img");
 let bouton = document.querySelector(".btn");
 
 bouton.addEventListener("click", function() {
-  titre.innerText = "Titre modifié !";
+  titre.innerText = "Hello eren !";
   titre.classList.toggle("highlight");
-  image.setAttribute("src", "mikasa 1.jpg");
-  image.setAttribute("alt", "Nouvelle image");
+  image.setAttribute("src", "Images/mikasaeren.jpg");
+  image.setAttribute("alt", "mikasa");
 });
