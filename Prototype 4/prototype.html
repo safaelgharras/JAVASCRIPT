@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Compteur dynamique avec sauvegarde</title>
+</head>
+<body>
+  <h1>Liste des tâches</h1>
+
+  <ul>
+    <li><input type="checkbox" class="tache" value="Chapitres terminées"> Terminer tout les chapitres du JAVASCRIPT</li>
+    <li><input type="checkbox" class="tache" value="Prototype terminé"> Terminer prototype</li>
+    <li><input type="checkbox" class="tache" value="Réalisation terminée"> Terminer Réalisation</li>
+  </ul>
+
+  <p>Tâches cochées : <span id="compteur">0/3</span></p>
+
+  <button id="btn-save">Sauvegarder</button>
+
+  <h3>Les tâches sauvegardées sont:</h3>
+  <ul id="liste-sauvegarde"></ul>
+
+  <script src="prototype.js"></script>
+</body>
+</html>
