@@ -5,17 +5,17 @@ let boutonSave = document.getElementById("btn-save");
 let listeSauvegarde = document.getElementById("liste-sauvegarde");
 
 
-function CompteurDesCases() {
-  let nbCochees = 0;
+function Compter() {
+  let n = 0;
   taches.forEach(function(tache) {
-    if (tache.checked) nbCochees++;
+    if (tache.checked) n++;
   });
-  compteur.innerText = nbCochees;
+  compteur.innerText = n;
 }
 
 
 taches.forEach(function(tache) {
-  tache.addEventListener("change", CompteurDesCases);
+  tache.addEventListener("change", Compter);
 });
 
 
