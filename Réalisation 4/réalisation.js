@@ -22,6 +22,13 @@ ajouterBouton.addEventListener('click', () => {
         tache.remove();
     });
 
+input.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault(); 
+    ajouterBouton.click(); 
+  }
+});
+
     checkbox.addEventListener('change', () => {
     tache.classList.toggle('done', checkbox.checked);
     
