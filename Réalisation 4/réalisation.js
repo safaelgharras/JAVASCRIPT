@@ -3,24 +3,21 @@ let input = document.getElementById("inputTache");
 let liste = document.getElementById("liste");
 let ajouterBouton = document.getElementById("ajouter");
 
+
+window.addEventListener('load', () => {
+  let tachesEnregistrées = JSON.parse(localStorage.getItem('taches')) || [];
+ tachesEnregistrées.forEach(t => {
+    ajouterTache(t.texte, t.terminee);
+  });
+});
+
 ajouterBouton.addEventListener('click', () => {
-    let texte = input.value.trim();
-    if (texte === "") return;
-    
-    let tache = document.createElement("li");
-
-    let checkbox = document.createElement("input");
-    checkbox.type = 'checkbox';
-
-    let span = document.createElement('span');
-    span.innerText = texte;
-
-    let supprimerBouton = document.createElement('button');
-    supprimerBouton.innerHTML = "Supprimer";
-
-    supprimerBouton.addEventListener('click', () => {
-        tache.remove();
-    });
+  let texte = input.value.trim();
+  if (texte === "") return;
+  ajouterTache(texte, false);
+  input.value = "";
+  sauvegarderTaches();
+});
 
 input.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
@@ -29,18 +26,45 @@ input.addEventListener('keydown', function(e) {
   }
 });
 
-    checkbox.addEventListener('change', () => {
-    tache.classList.toggle('done', checkbox.checked);
-    
 
+function ajouterTache(texte, terminee) {
+  let tache = document.createElement("li");
+
+  let checkbox = document.createElement("input");
+  checkbox.type = 'checkbox';
+  checkbox.checked = terminee;
+
+  let span = document.createElement('span');
+  span.innerText = texte;
+  if (terminee) tache.classList.add('done');
+
+  let supprimerBouton = document.createElement('button');
+  supprimerBouton.innerHTML = "Supprimer";
+
+  supprimerBouton.addEventListener('click', () => {
+    tache.remove();
+    sauvegarderTaches();
   });
 
-    let taches = document.createElement('div');
-    tache.appendChild(checkbox);
-    tache.appendChild(span);
-    tache.appendChild(supprimerBouton);
+  checkbox.addEventListener('change', () => {
+    tache.classList.toggle('done', checkbox.checked);
+    sauvegarderTaches();
+  });
 
-    liste.appendChild(tache);
+  tache.appendChild(checkbox);
+  tache.appendChild(span);
+  tache.appendChild(supprimerBouton);
 
-    input.value = "";
-});
+  liste.appendChild(tache);
+}
+
+
+function sauvegarderTaches() {
+  let allTasks = [];
+  document.querySelectorAll('#liste li').forEach(li => {
+    let texte = li.querySelector('span').innerText;
+    let terminee = li.querySelector('input[type="checkbox"]').checked;
+    allTasks.push({ texte, terminee });
+  });
+  localStorage.setItem('taches', JSON.stringify(allTasks));
+}
