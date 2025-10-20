@@ -12,6 +12,9 @@ body {
   min-height: 100vh;
   padding-top: 60px;
   border: 8px solid #8f4bb3;
+background-image: url(flowers.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
 
@@ -20,6 +23,7 @@ h1 {
   font-size: 2rem;
   color: #4c2b63;
   margin-bottom: 25px;
+  margin-top: 20% ;
 }
 
 
@@ -73,10 +77,13 @@ li {
 
 li span {
   flex: 1;
+  min-width: 0;
   margin-left: 10px;
-  word-wrap: break-word;   
-  overflow-wrap: break-word; 
+  margin-right: 10px;
+  display: inline-block;
   white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 
@@ -96,7 +103,7 @@ li button:hover {
 
 li.done span {
   text-decoration: line-through;
-  color: gray;
+  color: rgb(54, 11, 42);
   opacity: 0.7;
 }
 
