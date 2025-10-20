@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   padding-top: 60px;
   border: 8px solid #8f4bb3;
-background-image: url(flowers.jpg);
+  background-image: url(flowers.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 
