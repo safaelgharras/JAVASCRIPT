@@ -22,7 +22,10 @@ ajouterBouton.addEventListener('click', () => {
         tache.remove();
     });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 117239e52edf4f2af17f6fd25260a1775e011723
 input.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
     e.preventDefault(); 
@@ -30,7 +33,10 @@ input.addEventListener('keydown', function(e) {
   }
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 117239e52edf4f2af17f6fd25260a1775e011723
     checkbox.addEventListener('change', () => {
     tache.classList.toggle('done', checkbox.checked);
     
