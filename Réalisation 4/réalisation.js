@@ -60,11 +60,11 @@ function ajouterTache(texte, terminee) {
 
 
 function sauvegarderTaches() {
-  let allTasks = [];
+  let toutLesTaches = [];
   document.querySelectorAll('#liste li').forEach(li => {
     let texte = li.querySelector('span').innerText;
     let terminee = li.querySelector('input[type="checkbox"]').checked;
-    allTasks.push({ texte, terminee });
+   toutLesTaches.push({ texte, terminee });
   });
-  localStorage.setItem('taches', JSON.stringify(allTasks));
+  localStorage.setItem('taches', JSON.stringify(toutLesTaches));
 }
